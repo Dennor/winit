@@ -1,6 +1,9 @@
-# Allow rust-analyzer and local `cargo doc` invocations to pick up unreleased changelog entries
-#
-# Note that these flags are (intentionally) not included when building from the downloaded crate.
-[build]
-rustflags = ["--cfg=unreleased_changelogs"]
-rustdocflags = ["--cfg=unreleased_changelogs"]
+[target.aarch64-apple-darwin]
+linker = "clang"
+
+[target.x86_64-apple-darwin]
+linker = "clang"
+
+[target.x86_64-unknown-linux-musl]
+linker = "x86_64-unknown-linux-musl-gcc"
+rustflags = ["-C", "target-feature=+crt-static", "-C", "link-arg=-static"]

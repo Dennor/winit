@@ -5,3 +5,6 @@ rls/
 *~
 #*#
 .DS_Store
+.direnv
+.devenv
+.helix

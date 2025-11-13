@@ -57,7 +57,7 @@ rustdoc-args = ["--cfg", "docsrs"]
 
 # Features are documented in either `lib.rs` or under `winit::platform`.
 [features]
-default = ["rwh_06", "x11", "wayland", "wayland-dlopen", "wayland-csd-adwaita"]
+default = ["rwh_06", "x11", "wayland", "wayland-dlopen", "wayland-client_system", "wayland-csd-adwaita"]
 x11 = ["x11-dl", "bytemuck", "percent-encoding", "xkbcommon-dl/x11", "x11rb"]
 wayland = [
     "wayland-client",
@@ -69,6 +69,7 @@ wayland = [
     "memmap2",
 ]
 wayland-dlopen = ["wayland-backend/dlopen"]
+wayland-client_system = ["wayland-backend/client_system"]
 wayland-csd-adwaita = ["sctk-adwaita", "sctk-adwaita/ab_glyph"]
 wayland-csd-adwaita-crossfont = ["sctk-adwaita", "sctk-adwaita/crossfont"]
 wayland-csd-adwaita-notitle = ["sctk-adwaita"]
@@ -268,9 +269,7 @@ sctk = { package = "smithay-client-toolkit", version = "0.19.2", default-feature
     "calloop",
 ], optional = true }
 sctk-adwaita = { version = "0.10.1", default-features = false, optional = true }
-wayland-backend = { version = "0.3.10", default-features = false, features = [
-    "client_system",
-], optional = true }
+wayland-backend = { version = "0.3.10", default-features = false, optional = true }
 wayland-client = { version = "0.31.10", optional = true }
 wayland-protocols = { version = "0.32.8", features = [
     "staging",
